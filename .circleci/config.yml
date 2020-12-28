@@ -111,9 +111,9 @@ jobs:
           keys: [frontend-build]
       # Your job code here    
       - run:
-          name: Install Dependencies
+          name: Audit Dependencies
           command: | 
-            npm ci --production=false
+            cd frontend && npm audit --audit-level=critical
 
   scan-backend:
     docker:
@@ -127,9 +127,9 @@ jobs:
           keys: [frontend-build]
       # Your job code here    
       - run:
-          name: Install Dependencies
+          name: Audit Dependencies
           command: | 
-            npm ci --production=false
+            cd backend && npm audit --audit-level=critical
 
   deploy-infrastructure:
     docker:
