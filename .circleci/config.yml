@@ -72,8 +72,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       # Checkout code from git
-      - checkout:
-          path: ~/project/frontend
+      - checkout
       # Restore from cache    
       - restore_cache:
           keys: [frontend-build]
@@ -104,8 +103,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
        # Checkout code from git
-      - checkout:
-          path: ~/project/frontend
+      - checkout
       # Restore from cache    
       - restore_cache:
           keys: [frontend-build]
@@ -120,11 +118,10 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
        # Checkout code from git
-      - checkout:
-          path: ~/project/frontend
+      - checkout
       # Restore from cache    
       - restore_cache:
-          keys: [frontend-build]
+          keys: [backend-build]
       # Your job code here    
       - run:
           name: Audit Dependencies
