@@ -79,9 +79,9 @@ jobs:
           keys: [frontend-build]
       # Your job code here    
       - run:
-          name: Install Dependencies
+          name: Test Frontend
           command: | 
-            npm ci --production=false
+            cd frontend && npm run test
                 
   test-backend:
     docker:
@@ -89,16 +89,15 @@ jobs:
        - image: circleci/node:13.8.0
     steps:
       # Checkout code from git
-      - checkout:
-          path: ~/project/backend
+      - checkout
       # Restore from cache    
       - restore_cache:
           keys: [backend-build]
       # Your job code here    
       - run:
-          name: Install Dependencies
+          name: Test Backend
           command: | 
-            npm ci --production=false
+            cd backend && npm run test
             
   scan-frontend:
     docker:
