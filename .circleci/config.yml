@@ -60,7 +60,7 @@ jobs:
           command: | 
             cd backend && npm ci --production=false   
       - run:
-          name: Build front-end
+          name: Build backend
           command: |
             cd backend && npm run build
       - save_cache:
