@@ -131,7 +131,9 @@
       "raf/polyfill"
     ],
     "testRegex": ".*(spec|test)\\.(ts|tsx|js)$",
-    "setupFilesAfterEnv": ["./setupTests.ts"],
+    "setupFilesAfterEnv": [
+      "./setupTests.ts"
+    ],
     "snapshotSerializers": [
       "enzyme-to-json"
     ],
