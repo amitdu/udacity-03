@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Install Dependencies
           command: | 
-            cd frontend && npm ci --production=false
+            cd frontend && npm i
       - run:
           name: Build front-end
           command: |
@@ -81,6 +81,7 @@ jobs:
           name: Test Frontend
           command: | 
             cd frontend && npm run test
+  
   test-backend:
     docker:
       # Docker image here
