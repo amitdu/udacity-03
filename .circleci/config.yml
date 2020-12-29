@@ -39,11 +39,11 @@ jobs:
       - run:
           name: Install Dependencies
           command: | 
-            cd frontend && npm i
+            cd frontend && npm ci --production=false
       - run:
           name: Build front-end
           command: |
-            cd frontend && npm run build:prod         
+            cd frontend && npm run build:prod      
       - save_cache:
           paths: [frontend/node_modules]
           key: frontend-build
@@ -74,8 +74,12 @@ jobs:
       # Checkout code from git
       - checkout
       # Restore from cache    
-      - restore_cache:
-          keys: [frontend-build]
+      # - restore_cache:
+      #     keys: [frontend-build]
+      - run:
+          name: Install Dependencies
+          command: | 
+            cd frontend && npm install
       # Your job code here    
       - run:
           name: Test Frontend
