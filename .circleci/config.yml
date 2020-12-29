@@ -213,11 +213,10 @@ jobs:
             cd backend
              if grep "executed successfully" migration_results.txt
              then
-             curl -H "Content-Type: text/plain" -H "token: b77d30f5-6d1b-4b79-a7ff-4d5559c7baf6" --request PUT --data 1 https://api.memstash.io/values/<< pipeline.id >>_migrations
+             curl -H "Content-Type: text/plain" -H "token: b77d30f5-6d1b-4b79-a7ff-4d5559c7baf6" --request PUT --data 1 https://api.memstash.io/values/migration-result-${CIRCLE_WORKFLOW_ID:0:7} >>_migrations
              else
-             curl -H "Content-Type: text/plain" -H "token: b77d30f5-6d1b-4b79-a7ff-4d5559c7baf6" --request PUT --data 0 https://api.memstash.io/values/<< pipeline.id >>_migrations
+             curl -H "Content-Type: text/plain" -H "token: b77d30f5-6d1b-4b79-a7ff-4d5559c7baf6" --request PUT --data 0 https://api.memstash.io/values/migration-result-${CIRCLE_WORKFLOW_ID:0:7} >>_migrations
              fi
-      - revert-migrations
 
   deploy-frontend:
     docker:
