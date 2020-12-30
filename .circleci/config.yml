@@ -309,17 +309,17 @@ jobs:
       - run:
           name: Backend smoke test.
           command: |
-            # curl "http://${BACKEND_IP}:3030/api/status"
+            curl "http://${BACKEND_IP}:3030/api/status"
       - run:
           name: Frontend smoke test.
           command: |
-            # URL="http://udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3.website.eu-west-2.amazonaws.com"
-            # if curl -s ${URL} | grep "Welcome"
-            # then
-            #   return 0
-            # else
-            #   return 1
-            # fi
+            URL="http://udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3.website.eu-west-2.amazonaws.com"
+            if curl -s ${URL} | grep "Welcome"
+            then
+              return 0
+            else
+              return 1
+            fi
       - revert-migrations
       - destroy-environment
   

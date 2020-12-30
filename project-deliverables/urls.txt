@@ -1,0 +1,5 @@
+1. https://github.com/amitdu/udacity-03.git
+2. http://udapeople-e11e68c.s3-website.us-east-2.amazonaws.com
+3. http://d192ip26sitp79.cloudfront.net
+4. http://ec2-13-59-152-63.us-east-2.compute.amazonaws.com:3030
+5. http://ec2-18-222-30-230.us-east-2.compute.amazonaws.com:9090
